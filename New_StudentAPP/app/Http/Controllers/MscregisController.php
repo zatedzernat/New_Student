@@ -52,7 +52,7 @@ class MscregisController extends Controller
      */
     public function show(ShowStudentRequest $request)
     {
-        echo 5555555555;
+        return view('regis');
     }
 
     /**
@@ -63,7 +63,7 @@ class MscregisController extends Controller
      */
     public function edit(Mscregis $mscregis)
     {
-        //
+        echo 55;
     }
 
     /**

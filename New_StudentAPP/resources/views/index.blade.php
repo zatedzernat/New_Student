@@ -29,11 +29,6 @@ SIT New Student
     // return true;
     // }
 </script>
-<style>
-    body {
-        background-color: gray;
-    }
-</style>
 @endsection
 
 @section('content')
@@ -61,7 +56,7 @@ SIT New Student
                         คณะเทคโนโลยีสารสนเทศ ประจำภาคการศึกษาที่
                     </strong>
                 </p>
-                <form method="post" action="student" {{-- onsubmit="return checkform()" --}}>
+                <form method="post" action="register" {{-- onsubmit="return checkform()" --}}>
                     @csrf
                     <table width="750" border="0" align="center" cellpadding="2" cellspacing="0">
                         <tr>
