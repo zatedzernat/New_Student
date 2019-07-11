@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MscregisController@index');
+Route::post('student', 'MscregisController@show');
+
+
