@@ -21,6 +21,19 @@
 </head>
 
 <body>
+    <br>
+    <TABLE WIDTH=816 BORDER=0 CELLPADDING=0 CELLSPACING=0 align="center">
+        <TR>
+            <TD>
+                <IMG SRC="images/head_new_msc_01.jpg" WIDTH=224 HEIGHT=150 ALT=""></TD>
+            <TD>
+                <IMG SRC="images/head_new_msc_02.jpg" WIDTH=268 HEIGHT=150 ALT=""></TD>
+            <TD>
+                <IMG SRC="images/head_new_msc_03.jpg" WIDTH=181 HEIGHT=150 ALT=""></TD>
+            <TD>
+                <IMG SRC="images/head_new_msc_04.jpg" WIDTH=143 HEIGHT=150 ALT=""></TD>
+        </TR>
+    </TABLE>
     @yield('content')
 </body>
 

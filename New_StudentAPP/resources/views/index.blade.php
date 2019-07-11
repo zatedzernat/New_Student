@@ -31,28 +31,13 @@ SIT New Student
 </script>
 <style>
     body {
-        background-color: darkgray;
+        background-color: gray;
     }
 </style>
 @endsection
 
 @section('content')
 <div class="container" style="margin-top: 20px;">
-    <div class="row">
-        <TABLE WIDTH=816 BORDER=0 CELLPADDING=0 CELLSPACING=0 align="center">
-            <TR>
-                <TD>
-                    <IMG SRC="images/head_new_msc_01.jpg" WIDTH=224 HEIGHT=150 ALT=""></TD>
-                <TD>
-                    <IMG SRC="images/head_new_msc_02.jpg" WIDTH=268 HEIGHT=150 ALT=""></TD>
-                <TD>
-                    <IMG SRC="images/head_new_msc_03.jpg" WIDTH=181 HEIGHT=150 ALT=""></TD>
-                <TD>
-                    <IMG SRC="images/head_new_msc_04.jpg" WIDTH=143 HEIGHT=150 ALT=""></TD>
-            </TR>
-        </TABLE>
-    </div>
-    <br>
     <div class="row justify-content-center">
         <div class="col-md-9">
             <div class="card">
@@ -111,7 +96,7 @@ SIT New Student
                             </td>
                             <td>
                                 <input name="Submit" class="btn btn-primary" type="submit" id="Submit" value="Login">
-                                <input type="reset" class="btn btn-warning" name="Reset" value="Clear">
+                                <input type="reset" class="btn btn-secondary" name="Reset" value="Clear">
                             </td>
                         </tr>
                     </table>
@@ -123,9 +108,10 @@ SIT New Student
 </div>
 <br>
 <div align="center">
-    <span class="button">
-        <font color="#FFFFFF"><a href="http://www.sit.kmutt.ac.th">www.sit.kmutt.ac.th </a>
-        </font>
-    </span>
+        <a href="http://www.sit.kmutt.ac.th">
+            <span style="color: white; font-size: 18px">
+                www.sit.kmutt.ac.th
+            </span>
+        </a>
 </div>
 @endsection
