@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Models\Mscregis;
 use Illuminate\Http\Request;
 use App\Http\Requests\ShowStudentRequest;
+use App\Http\Requests\RegisterStudentRequest;
 
 class MscregisController extends Controller
 {
+    private $msc;
+
+    public function __construct()
+    {
+        $this->msc = new Mscregis();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,11 +22,6 @@ class MscregisController extends Controller
      */
     public function index()
     {
-        // $msc = new Mscregis();
-        // $mscAll = $msc->getAll();
-        // foreach ($mscAll as $tmp) {
-        //     echo $tmp->idno."<br>";
-        // }
         return view('index');
     }
 
@@ -52,7 +54,20 @@ class MscregisController extends Controller
      */
     public function show(ShowStudentRequest $request)
     {
-        return view('regis');
+        $idno = $request->input('idno1') . 
+        $request->input('idno2') . 
+        $request->input('idno3') . 
+        $request->input('idno4') . 
+        $request->input('idno5');
+
+        $student = $this->msc->getByidno($idno);
+        if ($student) {
+            $request->session()->put('student',$student);
+            // return view('warn');
+            return view('regis');
+        }else {
+            return view('warn');
+        }
     }
 
     /**
@@ -61,7 +76,7 @@ class MscregisController extends Controller
      * @param  \App\Mscregis  $mscregis
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mscregis $mscregis)
+    public function edit(RegisterStudentRequest $mscregis)
     {
         echo 55;
     }

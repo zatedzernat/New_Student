@@ -35,11 +35,13 @@ class ShowStudentRequest extends FormRequest
     public function messages()
     {
         return [
-            'idno1.required'    => 'ช่องแรกกรอกไม่ครบ (1)',
-            'idno2.required'    => 'ช่องสองกรอกไม่ครบ (4)',
-            'idno3.required'    => 'ช่องสามกรอกไม่ครบ (5)',
-            'idno4.required'    => 'ช่องสี่กรอกไม่ครบ (2)',
-            'idno5.required'    => 'ช่องห้ากรอกไม่ครบ (1)'
+            'required' => 'กรอกเลขให้ครบ (:attribute)',
+            'idno1.digits'    => 'ช่องแรกกรอกไม่ครบ',
+            'idno1.digits'    => 'ช่องแรกกรอกไม่ครบ',
+            'idno2.digits'    => 'ช่องสองกรอกไม่ครบ',
+            'idno3.digits'    => 'ช่องสามกรอกไม่ครบ',
+            'idno4.digits'    => 'ช่องสี่กรอกไม่ครบ',
+            'idno5.digits'    => 'ช่องห้ากรอกไม่ครบ'
         ];
     }
 }

@@ -103,10 +103,10 @@ SIT New Student
 </div>
 <br>
 <div align="center">
-        <a href="http://www.sit.kmutt.ac.th">
-            <span style="color: white; font-size: 18px">
-                www.sit.kmutt.ac.th
-            </span>
-        </a>
+    <a href="http://www.sit.kmutt.ac.th">
+        <span style="color: white; font-size: 18px">
+            www.sit.kmutt.ac.th
+        </span>
+    </a>
 </div>
 @endsection
