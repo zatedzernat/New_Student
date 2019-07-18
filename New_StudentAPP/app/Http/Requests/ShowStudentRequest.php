@@ -35,7 +35,7 @@ class ShowStudentRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'กรอกเลขให้ครบ (:attribute)',
+            'required' => 'กรอกเลขทุกช่องให้ครบ',
             'idno1.digits'    => 'ช่องแรกกรอกไม่ครบ',
             'idno1.digits'    => 'ช่องแรกกรอกไม่ครบ',
             'idno2.digits'    => 'ช่องสองกรอกไม่ครบ',
