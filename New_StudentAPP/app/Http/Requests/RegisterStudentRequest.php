@@ -33,9 +33,9 @@ class RegisterStudentRequest extends FormRequest
             'origin' => 'required',
             'national' => 'required',
             'religion' => 'required',
-            'tel1' => 'required|digits:2',
-            'tel2' => 'required|digits:4',
-            'tel3' => 'required|digits:4',
+            'mo1' => 'required|digits:2',
+            'mo2' => 'required|digits:4',
+            'mo3' => 'required|digits:4',
             'email' => 'required',
             'em_address' => 'required',
             'em_tel1' => 'required|digits:2',
@@ -56,9 +56,9 @@ class RegisterStudentRequest extends FormRequest
     {
         return [
             'required' => 'กรอกช่องที่มีเครื่องหมายดอกจัน',
-            'tel1.digits' => 'เบอร์มือถือช่องแรกกรอกไม่ครบ',
-            'tel2.digits' => 'เบอร์มือถือช่องสองกรอกไม่ครบ',
-            'tel3.digits' => 'เบอร์มือถือช่องสามกรอกไม่ครบ',
+            'mo1.digits' => 'เบอร์มือถือช่องแรกกรอกไม่ครบ',
+            'mo2.digits' => 'เบอร์มือถือช่องสองกรอกไม่ครบ',
+            'mo3.digits' => 'เบอร์มือถือช่องสามกรอกไม่ครบ',
             'em_tel1.digits' => 'เบอร์มือถือฉุกเฉินช่องแรกกรอกไม่ครบ',
             'em_tel2.digits' => 'เบอร์มือถือฉุกเฉินช่องสองกรอกไม่ครบ',
             'em_tel3.digits' => 'เบอร์มือถือฉุกเฉินช่องสามกรอกไม่ครบ'
