@@ -63,7 +63,6 @@ class MscregisController extends Controller
         $student = $this->msc->getByidno($idno);
         if ($student) {
             $request->session()->put('student',$student);
-            // return view('warn');
             return view('regis');
         }else {
             return view('warn');
@@ -73,12 +72,28 @@ class MscregisController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Mscregis  $mscregis
      * @return \Illuminate\Http\Response
      */
-    public function edit(RegisterStudentRequest $mscregis)
+    public function edit(RegisterStudentRequest $request)
     {
-        echo 55;
+        $tel = $request->tel1 . $request->tel2 . $request->tel3;
+        $mobile = $request->mo1 . $request->mo2 . $request->mo3;
+        $em_tel = $request->em1 . $request->em2 . $request->em3;
+        $telwork = $request->telwork1 . $request->telwork2 . $request->telwork3;
+
+
+        $this->msc->setPersonalDetail($request->nameth, $request->lastname_th, $request->nameen, $request->lastname_en, $request->sex, $request->bloodtype, $request->dbirth
+        , $request->mbirth, $request->ybirth, $request->status, $request->origin, $request->national, $request->religion, $request->note, $request->address, $request->add1
+        , $request->add2, $request->city, $request->zipcode, $tel, $mobile, $request->email, $request->em_address, $request->contact, $em_tel);
+
+        $this->msc->setWorkDetail($request->namebus, $request->workadd, $telwork, $request->position, $request->year_start, $request->note_work);
+
+        $this->msc->setStudyDetail($request->graduate, $request->year_end, $request->gfrom, $request->branch, $request->type_edu, $request->gpa, $request->note_edu);
+
+        $this->msc->save();
+        $request->session()->flush();
+
+        return view('index');
     }
 
     /**
