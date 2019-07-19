@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RegisterStudentRequest extends FormRequest
@@ -33,9 +34,9 @@ class RegisterStudentRequest extends FormRequest
             'origin' => 'required',
             'national' => 'required',
             'religion' => 'required',
-            'mo1' => 'required|digits:2',
-            'mo2' => 'required|digits:4',
-            'mo3' => 'required|digits:4',
+            'mobile1' => 'required|digits:2',
+            'mobile2' => 'required|digits:4',
+            'mobile3' => 'required|digits:4',
             'email' => 'required',
             'em_address' => 'required',
             'em_tel1' => 'required|digits:2',
@@ -61,7 +62,18 @@ class RegisterStudentRequest extends FormRequest
             'mo3.digits' => 'เบอร์มือถือช่องสามกรอกไม่ครบ',
             'em_tel1.digits' => 'เบอร์มือถือฉุกเฉินช่องแรกกรอกไม่ครบ',
             'em_tel2.digits' => 'เบอร์มือถือฉุกเฉินช่องสองกรอกไม่ครบ',
-            'em_tel3.digits' => 'เบอร์มือถือฉุกเฉินช่องสามกรอกไม่ครบ'
+            'em_tel3.digits' => 'เบอร์มือถือฉุกเฉินช่องสามกรอกไม่ครบ',
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        // throw (new ValidationException($validator))
+        //             ->errorBag($this->errorBag)
+        //             ->redirectTo($this->getRedirectUrl());
+        
+        return redirect('/register/f')
+            ->withErrors($validator)
+            ->withInput();
     }
 }

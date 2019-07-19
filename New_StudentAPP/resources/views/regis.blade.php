@@ -39,8 +39,9 @@ SIT New Student Register
                     </strong>
                 </p>
                 {{-- form start --}}
-                <form id="example-advanced-form" action="register/update" method="post">
+                <form method="POST" id="example-advanced-form" action="/update">
                     @csrf
+                    @method('POST')
                     <div class="card">
                         <div class="card-header" style="background-color: khaki;">ข้อมูลส่วนตัว</div>
                         <div class="card-body">
@@ -554,13 +555,13 @@ SIT New Student Register
                                 <div class="col-sm-1" style="width: 70px;">
                                     <input type="text" id="em1" onkeyup="nextTo(this,2,this.form.em2)"
                                         class="form-control" value="{{ substr(session('student')->em_tel,0,2) }}"
-                                        size="2" maxlength="2" name="em-tel1" required style="width: 43px;">
+                                        size="2" maxlength="2" name="em_tel1" required style="width: 43px;">
                                 </div>
                                 -
                                 <div class="col-sm-2">
                                     <input type="text" id="em2" onkeyup="nextTo(this,4,this.form.em3)"
                                         class="form-control" value="{{ substr(session('student')->em_tel,3,4) }}"
-                                        size="4" maxlength="4" name="em-tel2" required>
+                                        size="4" maxlength="4" name="em_tel2" required>
                                 </div>
                                 -
                                 <div class="col-sm-2">
@@ -682,13 +683,16 @@ SIT New Student Register
                                     <select class="form-control" name="type_edu">
                                         <option value="-">- </option>
                                         <option {{ session('student')->type_edu == "มหาวิทยาลัยรัฐ" ? 'selected' : '' }}
-                                            value="มหาวิทยาลัยรัฐ">มหาวิทยาลัยรัฐ </option>
+                                            value="มหาวิทยาลัยรัฐ">
+                                            มหาวิทยาลัยรัฐ </option>
                                         <option
                                             {{ session('student')->type_edu == "มหาวิทยาลัยเปิด" ? 'selected' : '' }}
-                                            value="มหาวิทยาลัยเปิด">มหาวิทยาลัยเปิด </option>
+                                            value="มหาวิทยาลัยเปิด">
+                                            มหาวิทยาลัยเปิด </option>
                                         <option
                                             {{ session('student')->type_edu == "มหาวิทยาลัยเอกชน" ? 'selected' : '' }}
-                                            value="มหาวิทยาลัยเอกชน">มหาวิทยาลัยเอกชน </option>
+                                            value="มหาวิทยาลัยเอกชน">
+                                            มหาวิทยาลัยเอกชน </option>
                                     </select>
                                 </div>
                             </div>

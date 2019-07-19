@@ -56,8 +56,9 @@ SIT New Student
                         คณะเทคโนโลยีสารสนเทศ ประจำภาคการศึกษาที่
                     </strong>
                 </p>
-                <form method="post" action="register" {{-- onsubmit="return checkform()" --}}>
+                <form method="POST" action="/register">
                     @csrf
+                    @method('POST')
                     <table width="750" border="0" align="center" cellpadding="2" cellspacing="0">
                         <tr>
                             <td>เลขบัตรประชาชน/Passport No.</td>

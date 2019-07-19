@@ -12,7 +12,9 @@
 */
 
 Route::get('/', 'MscregisController@index');
-Route::post('register', 'MscregisController@show');
-Route::post('register/update', 'MscregisController@edit');
+
+Route::post('/register', 'MscregisController@show');
+
+Route::post('/update', 'MscregisController@edit');
 
 
