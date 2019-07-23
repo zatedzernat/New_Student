@@ -582,8 +582,8 @@ SIT New Student Register
                             <div class="form-group row" style="background-color: darksalmon;">
                                 <label class="col-sm-3 col-form-label">บริษัท :</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" value="{{ session('student')->namebus }}"
-                                        name="namebus">
+                                    <input type="text" class="form-control" value="{{ session('student')->name_bus }}"
+                                        name="name_bus">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -633,8 +633,8 @@ SIT New Student Register
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">หมายเหตุ :</label>
                                 <div class="col-sm-5">
-                                    <textarea class="form-control" name="note_work"
-                                        rows="3">{{ session('student')->note_work }}</textarea>
+                                    <textarea class="form-control" name="notework"
+                                        rows="3">{{ session('student')->notework }}</textarea>
                                 </div>
                             </div>
                         </div>

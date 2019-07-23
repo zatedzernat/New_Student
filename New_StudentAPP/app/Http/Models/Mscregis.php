@@ -23,7 +23,7 @@ class Mscregis extends Model
         return Mscregis::all();
     }
 
-    public function getByidno($idno)
+    public function findByidno($idno)
     {
         return Mscregis::where('idno', $idno)->first();
     }
@@ -65,14 +65,14 @@ class Mscregis extends Model
 
     }
 
-    public function setWorkDetail($namebus, $workadd, $telwork, $position, $year_start, $note_work) {
+    public function setWorkDetail($name_bus, $workadd, $telwork, $position, $year_start, $notework) {
 
-        $this->namebus = $namebus;
+        $this->name_bus = $name_bus;
         $this->workadd = $workadd;
         $this->telwork = $telwork;
         $this->position = $position;
         $this->year_start = $year_start;
-        $this->note_work = $note_work;
+        $this->notework = $notework;
         
     }
     

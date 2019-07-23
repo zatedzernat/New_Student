@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', 'MscregisController@index');
+Route::get('/', 'MscregisController@index')->name('home');
 
-Route::post('/register', 'MscregisController@show');
+Route::post('/register', 'MscregisController@show')->name('register');
 
-Route::post('/update', 'MscregisController@edit');
+Route::post('/update', 'MscregisController@edit')->name('update');
 
 

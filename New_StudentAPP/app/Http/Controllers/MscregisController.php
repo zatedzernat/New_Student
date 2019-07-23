@@ -54,13 +54,9 @@ class MscregisController extends Controller
      */
     public function show(ShowStudentRequest $request)
     {
-        $idno = $request->input('idno1') . 
-        $request->input('idno2') . 
-        $request->input('idno3') . 
-        $request->input('idno4') . 
-        $request->input('idno5');
-
-        $student = $this->msc->getByidno($idno);
+        $idno = $request->input('idno1') . $request->input('idno2') . $request->input('idno3') . $request->input('idno4') . $request->input('idno5');
+        
+        $student = $this->msc->findByidno($idno);
         if ($student) {
             $request->session()->put('student',$student);
             return view('regis');
@@ -68,7 +64,7 @@ class MscregisController extends Controller
             return view('warn');
         }
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -77,25 +73,25 @@ class MscregisController extends Controller
     public function edit(RegisterStudentRequest $request)
     {
         $validate = $request->validated();
-        dd("tel " . $request->tel1 . $request->tel2 . $request->tel3 . " mobile " . $request->mobile1 . $request->mobile2 . $request->mobile3 .  " em " . $request->em_tel1 . $request->em_tel2 . $request->em_tel3);
+        $idno = $request->session()->get('student')->idno;
+        $student = $this->msc->findByidno($idno);
 
-        // $tel = $request->tel1 . $request->tel2 . $request->tel3;
-        // $mobile = $request->mobile1 . $request->mobile2 . $request->mobile3;
-        // $em_tel = $request->em_tel1 . $request->em_tel2 . $request->em_tel3;
-        // $telwork = $request->telwork1 . $request->telwork2 . $request->telwork3;
+        $tel = $request->tel1 . $request->tel2 . $request->tel3;
+        $mobile = $request->mobile1 . $request->mobile2 . $request->mobile3;
+        $em_tel = $request->em_tel1 . $request->em_tel2 . $request->em_tel3;
+        $telwork = $request->telwork1 . $request->telwork2 . $request->telwork3;
 
+        $student->setPersonalDetail($request->nameth, $request->lastname_th, $request->nameen, $request->lastname_en, $request->sex, $request->bloodtype, $request->dbirth
+        , $request->mbirth, $request->ybirth, $request->status, $request->origin, $request->national, $request->religion, $request->note, $request->address, $request->add1
+        , $request->add2, $request->city, $request->zipcode, $tel, $mobile, $request->email, $request->em_address, $request->contact, $em_tel);
 
-        // $this->msc->setPersonalDetail($request->nameth, $request->lastname_th, $request->nameen, $request->lastname_en, $request->sex, $request->bloodtype, $request->dbirth
-        // , $request->mbirth, $request->ybirth, $request->status, $request->origin, $request->national, $request->religion, $request->note, $request->address, $request->add1
-        // , $request->add2, $request->city, $request->zipcode, $tel, $mobile, $request->email, $request->em_address, $request->contact, $em_tel);
+        $student->setWorkDetail($request->name_bus, $request->workadd, $telwork, $request->position, $request->year_start, $request->notework);
 
-        // $this->msc->setWorkDetail($request->namebus, $request->workadd, $telwork, $request->position, $request->year_start, $request->note_work);
-
-        // $this->msc->setStudyDetail($request->graduate, $request->year_end, $request->gfrom, $request->branch, $request->type_edu, $request->gpa, $request->note_edu);
-
-        // $this->msc->save();
-        // $request->session()->flush();
-        // return view('index');
+        $student->setStudyDetail($request->graduate, $request->year_end, $request->gfrom, $request->branch, $request->type_edu, $request->gpa, $request->note_edu);
+        
+        $student->save();
+        $request->session()->pull('student');
+        return view('success');
     }
 
     /**
