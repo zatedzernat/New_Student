@@ -6,6 +6,7 @@ use App\Http\Models\Mscregis;
 use App\Http\Requests\RegisterStudentRequest;
 use App\Http\Requests\ShowStudentRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 
 class MscregisController extends Controller
 {
@@ -72,7 +73,13 @@ class MscregisController extends Controller
      */
     public function edit(Request $request)
     {
-        return view('regis');
+        if ($request->session()->get('student')) {
+            return view('regis');
+        } else {
+            $errors = new MessageBag();
+            $errors->add('no_ses_ed', 'กรุณาล๊อคอินอีกครั้ง (session expired[edit])');
+            return redirect()->route('home')->withErrors($errors);
+        }
     }
 
     /**
@@ -85,22 +92,33 @@ class MscregisController extends Controller
     public function update(RegisterStudentRequest $request)
     {
         $validate = $request->validated();
-        $idno = $request->session()->get('student')->idno;
-        $student = $this->msc->findByidno($idno);
+        if ($request->session()->get('student')) {
+            $idno = $request->session()->get('student')->idno;
+            $student = $this->msc->findByidno($idno);
 
-        $tel = $request->tel1 . $request->tel2 . $request->tel3;
-        $mobile = $request->mobile1 . $request->mobile2 . $request->mobile3;
-        $em_tel = $request->em_tel1 . $request->em_tel2 . $request->em_tel3;
-        $telwork = $request->telwork1 . $request->telwork2 . $request->telwork3;
+            $tel = $request->tel1 . $request->tel2 . $request->tel3;
+            $mobile = $request->mobile1 . $request->mobile2 . $request->mobile3;
+            $em_tel = $request->em_tel1 . $request->em_tel2 . $request->em_tel3;
+            $telwork = $request->telwork1 . $request->telwork2 . $request->telwork3;
 
-        $student->setPersonalDetail($request->nameth, $request->lastname_th, $request->nameen, $request->lastname_en, $request->sex, $request->bloodtype, $request->dbirth
-            , $request->mbirth, $request->ybirth, $request->status, $request->origin, $request->national, $request->religion, $request->note, $request->address, $request->add1
-            , $request->add2, $request->city, $request->zipcode, $tel, $mobile, $request->email, $request->em_address, $request->contact, $em_tel);
-        $student->setWorkDetail($request->name_bus, $request->workadd, $telwork, $request->position, $request->year_start, $request->notework);
-        $student->setStudyDetail($request->graduate, $request->year_end, $request->gfrom, $request->branch, $request->type_edu, $request->gpa, $request->note_edu);
+            $student->setPersonalDetail($request->nameth, $request->lastname_th, $request->nameen, $request->lastname_en, $request->sex, $request->bloodtype, $request->dbirth
+                , $request->mbirth, $request->ybirth, $request->status, $request->origin, $request->national, $request->religion, $request->note, $request->address, $request->add1
+                , $request->add2, $request->city, $request->zipcode, $tel, $mobile, $request->email, $request->em_address, $request->contact, $em_tel);
+            $student->setWorkDetail($request->name_bus, $request->workadd, $telwork, $request->position, $request->year_start, $request->notework);
+            $student->setStudyDetail($request->graduate, $request->year_end, $request->gfrom, $request->branch, $request->type_edu, $request->gpa, $request->note_edu);
 
-        $student->save();
-        $request->session()->pull('student');
+            $student->save();
+            $request->session()->pull('student');
+            return redirect()->route('suc');
+        } else {
+            $errors = new MessageBag();
+            $errors->add('no_ses_up', 'กรุณาล๊อคอินอีกครั้ง (session expired[update])');
+            return redirect()->route('home')->withErrors($errors);
+        }
+
+    }
+
+    public function success() {
         return view('success');
     }
 

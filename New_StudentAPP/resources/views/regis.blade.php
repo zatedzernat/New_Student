@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-SIT New Student Register
+SIT New Student
 @endsection
 
 @section('header')
@@ -39,7 +39,7 @@ SIT New Student Register
                     </strong>
                 </p>
                 {{-- form start --}}
-                <form method="POST" id="example-advanced-form" action="/update">
+                <form method="POST" id="example-advanced-form" action="/update" class="form-horizontal">
                     @csrf
                     @method('POST')
                     <div class="card">
@@ -298,6 +298,7 @@ SIT New Student Register
                                     <input type="text" class="form-control" value="{{ session('student')->address }}"
                                         name="address">
                                 </div>
+                                &nbsp;
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">แขวง/ตำบล :</label>
@@ -478,6 +479,7 @@ SIT New Student Register
                                     <input type="text" class="form-control" value="{{ session('student')->zipcode }}"
                                         name="zipcode">
                                 </div>
+                                &nbsp;
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">โทรศัพท์บ้าน :</label>
@@ -585,6 +587,7 @@ SIT New Student Register
                                     <input type="text" class="form-control" value="{{ session('student')->name_bus }}"
                                         name="name_bus">
                                 </div>
+                                &nbsp;
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">ที่อยู่บริษัท :</label>
@@ -695,6 +698,7 @@ SIT New Student Register
                                             มหาวิทยาลัยเอกชน </option>
                                     </select>
                                 </div>
+                                &nbsp;
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">เกรดเฉลี่ยสะสม :</label>
@@ -710,13 +714,10 @@ SIT New Student Register
                                     <textarea class="form-control" name="note_edu"
                                         rows="3">{{ session('student')->note_edu }}</textarea>
                                 </div>
+                                &nbsp;
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-5">
-                        </div>
-                        <div class="col-sm-4">
+                        <div style="text-align: center;">
                             <input type="submit" class="btn btn-primary" value="Submit">
                             <input type="reset" class="btn btn-secondary" value="Reset">
                         </div>

@@ -2,7 +2,7 @@
 
 
 @section('title')
-    CAN NOT LOGIN!!
+CAN NOT LOGIN!!
 @endsection
 
 @section('content')

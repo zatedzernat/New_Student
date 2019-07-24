@@ -59,43 +59,47 @@ SIT New Student
                 <form method="POST" action="/detail">
                     @csrf
                     @method('POST')
-                    <table width="750" border="0" align="center" cellpadding="2" cellspacing="0">
-                        <tr>
-                            <td>เลขบัตรประชาชน/Passport No.</td>
-                            <td>
-                                <span>
-                                    <input name="idno1" type="text" id="idno1" size="1" maxlength="1"
-                                        onKeyUp="TabNext(this,'up',1,this.form.idno2)" autofocus required
-                                        placeholder="0">
-                                    -
-                                    <input name="idno2" type="text" id="idno2" size="4" maxlength="4"
-                                        onKeyUp="TabNext(this,'up',4,this.form.idno3)" required placeholder="0000">
-                                    -
-                                    <input name="idno3" type="text" id="idno3" size="5" maxlength="5"
-                                        onKeyUp="TabNext(this,'up',5,this.form.idno4)" required placeholder="00000">
-                                    -
-                                    <input name="idno4" type="text" id="idno4" size="2" maxlength="2"
-                                        onKeyUp="TabNext(this,'up',2,this.form.idno5)" required placeholder="00">
-                                    -
-                                    <input name="idno5" type="text" id="idno5" size="1" maxlength="1" placeholder="0">
-                                </span>
-                        </tr>
-                        <tr>
-                            <td width="208" class="big">&nbsp;</td>
-                            <td width="484">หากไม่สามารถ Log in ได้ กรุณาติดต่อที่เบอร์ 02-470-9888 หรือ <br>
-                                e-mail
-                                : <a href="mailto:webadmin@sit.kmutt.ac.th">webadmin@sit.kmutt.ac.th</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div align="center"></div>
-                            </td>
-                            <td>
-                                <input name="Submit" class="btn btn-primary" type="submit" id="Submit" value="Login">
-                                <input type="reset" class="btn btn-secondary" name="Reset" value="Clear">
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="table-responsive">
+                        <table width="750" border="0" align="center" cellpadding="2" cellspacing="0">
+                            <tr>
+                                <td>เลขบัตรประชาชน/Passport No.</td>
+                                <td>
+                                    <span>
+                                        <input name="idno1" type="text" id="idno1" size="1" maxlength="1"
+                                            onKeyUp="TabNext(this,'up',1,this.form.idno2)" autofocus required
+                                            placeholder="0">
+                                        -
+                                        <input name="idno2" type="text" id="idno2" size="4" maxlength="4"
+                                            onKeyUp="TabNext(this,'up',4,this.form.idno3)" required placeholder="0000">
+                                        -
+                                        <input name="idno3" type="text" id="idno3" size="5" maxlength="5"
+                                            onKeyUp="TabNext(this,'up',5,this.form.idno4)" required placeholder="00000">
+                                        -
+                                        <input name="idno4" type="text" id="idno4" size="2" maxlength="2"
+                                            onKeyUp="TabNext(this,'up',2,this.form.idno5)" required placeholder="00">
+                                        -
+                                        <input name="idno5" type="text" id="idno5" size="1" maxlength="1"
+                                            placeholder="0">
+                                    </span>
+                            </tr>
+                            <tr>
+                                <td width="208" class="big">&nbsp;</td>
+                                <td width="484">หากไม่สามารถ Log in ได้ กรุณาติดต่อที่เบอร์ 02-470-9888 หรือ <br>
+                                    e-mail
+                                    : <a href="mailto:webadmin@sit.kmutt.ac.th">webadmin@sit.kmutt.ac.th</a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div align="center"></div>
+                                </td>
+                                <td>
+                                    <input name="Submit" class="btn btn-primary" type="submit" id="Submit"
+                                        value="Login">
+                                    <input type="reset" class="btn btn-secondary" name="Reset" value="Clear">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                     <br>
                 </form>
             </div>
