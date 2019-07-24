@@ -3,27 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Http\Models\Mscregis;
+use App\Http\Models\Opcldate;
 use App\Http\Requests\RegisterStudentRequest;
 use App\Http\Requests\ShowStudentRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 
 class MscregisController extends Controller
 {
+    private $opcl;
     private $msc;
 
     public function __construct()
     {
         $this->msc = new Mscregis();
+        $this->opcl = new Opcldate();
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('index');
+        $request->session()->put('opcl',$this->opcl->getOpcl());
+        $thaidate = $this->opcl->getThaiDate();
+        return view('index')
+        ->with(compact('thaidate'));
     }
 
     /**
@@ -55,14 +62,21 @@ class MscregisController extends Controller
      */
     public function show(ShowStudentRequest $request)
     {
-        $idno = $request->input('idno1') . $request->input('idno2') . $request->input('idno3') . $request->input('idno4') . $request->input('idno5');
+        $canLogin = $this->opcl->checkOpcl(Carbon::now());
+        if ($canLogin) {
+            $idno = $request->input('idno1') . $request->input('idno2') . $request->input('idno3') . $request->input('idno4') . $request->input('idno5');
 
-        $student = $this->msc->findByidno($idno);
-        if ($student) {
-            $request->session()->put('student', $student);
-            return redirect()->route('edit');
-        } else {
-            return view('warn');
+            $student = $this->msc->findByidno($idno);
+            if ($student) {
+                $request->session()->put('student', $student);
+                return redirect()->route('edit');
+            } else {
+                return view('warn');
+            }
+        }else {
+            $errors = new MessageBag();
+            $errors->add('closetime','สามารถกรอกประวัติได้ตามวันและเวลาที่กำหนดค่ะ');
+            return redirect()->route('home')->withErrors($errors);
         }
     }
 

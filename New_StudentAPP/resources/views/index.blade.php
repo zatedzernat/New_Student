@@ -53,7 +53,11 @@ SIT New Student
                         <br>
                         โปรแกรมกรอกข้อมูลสำหรับนักศึกษาใหม่
                         <br>
-                        คณะเทคโนโลยีสารสนเทศ ประจำภาคการศึกษาที่
+                        คณะเทคโนโลยีสารสนเทศ ประจำภาคการศึกษาที่ {{ session('opcl')->semester }}
+                        <br>
+                        ตั้งแต่วันที่ {{ $thaidate['openday'] }} {{  $thaidate['openmonth'] }} {{ $thaidate['openyear'] }} เวลา {{ session('opcl')->opendate->format('H:i') }}
+                        <br>
+                        ถึงวันที่ {{ $thaidate['closeday'] }} {{  $thaidate['closemonth'] }} {{ $thaidate['closeyear'] }} เวลา {{ session('opcl')->closedate->format('H:i') }}
                     </strong>
                 </p>
                 <form method="POST" action="/detail">
