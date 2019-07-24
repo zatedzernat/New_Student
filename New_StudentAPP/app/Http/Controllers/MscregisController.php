@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Models\Mscregis;
-use Illuminate\Http\Request;
-use App\Http\Requests\ShowStudentRequest;
 use App\Http\Requests\RegisterStudentRequest;
+use App\Http\Requests\ShowStudentRequest;
+use Illuminate\Http\Request;
 
 class MscregisController extends Controller
 {
@@ -55,22 +55,34 @@ class MscregisController extends Controller
     public function show(ShowStudentRequest $request)
     {
         $idno = $request->input('idno1') . $request->input('idno2') . $request->input('idno3') . $request->input('idno4') . $request->input('idno5');
-        
+
         $student = $this->msc->findByidno($idno);
         if ($student) {
-            $request->session()->put('student',$student);
-            return view('regis');
-        }else {
+            $request->session()->put('student', $student);
+            return redirect()->route('edit');
+        } else {
             return view('warn');
         }
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit(RegisterStudentRequest $request)
+    public function edit(Request $request)
+    {
+        return view('regis');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Mscregis  $mscregis
+     * @return \Illuminate\Http\Response
+     */
+    public function update(RegisterStudentRequest $request)
     {
         $validate = $request->validated();
         $idno = $request->session()->get('student')->idno;
@@ -82,28 +94,14 @@ class MscregisController extends Controller
         $telwork = $request->telwork1 . $request->telwork2 . $request->telwork3;
 
         $student->setPersonalDetail($request->nameth, $request->lastname_th, $request->nameen, $request->lastname_en, $request->sex, $request->bloodtype, $request->dbirth
-        , $request->mbirth, $request->ybirth, $request->status, $request->origin, $request->national, $request->religion, $request->note, $request->address, $request->add1
-        , $request->add2, $request->city, $request->zipcode, $tel, $mobile, $request->email, $request->em_address, $request->contact, $em_tel);
-
+            , $request->mbirth, $request->ybirth, $request->status, $request->origin, $request->national, $request->religion, $request->note, $request->address, $request->add1
+            , $request->add2, $request->city, $request->zipcode, $tel, $mobile, $request->email, $request->em_address, $request->contact, $em_tel);
         $student->setWorkDetail($request->name_bus, $request->workadd, $telwork, $request->position, $request->year_start, $request->notework);
-
         $student->setStudyDetail($request->graduate, $request->year_end, $request->gfrom, $request->branch, $request->type_edu, $request->gpa, $request->note_edu);
-        
+
         $student->save();
         $request->session()->pull('student');
         return view('success');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Mscregis  $mscregis
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Mscregis $mscregis)
-    {
-        //
     }
 
     /**

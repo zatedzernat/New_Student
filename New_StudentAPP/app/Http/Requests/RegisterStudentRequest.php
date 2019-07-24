@@ -66,14 +66,4 @@ class RegisterStudentRequest extends FormRequest
         ];
     }
 
-    protected function failedValidation(Validator $validator)
-    {
-        // throw (new ValidationException($validator))
-        //             ->errorBag($this->errorBag)
-        //             ->redirectTo($this->getRedirectUrl());
-        
-        return redirect('/register/f')
-            ->withErrors($validator)
-            ->withInput();
-    }
 }

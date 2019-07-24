@@ -13,8 +13,10 @@
 
 Route::get('/', 'MscregisController@index')->name('home');
 
-Route::post('/register', 'MscregisController@show')->name('register');
+Route::post('/detail', 'MscregisController@show')->name('detail');
 
-Route::post('/update', 'MscregisController@edit')->name('update');
+Route::get('/edit', 'MscregisController@edit')->name('edit');
+
+Route::post('/update', 'MscregisController@update')->name('update');
 
 

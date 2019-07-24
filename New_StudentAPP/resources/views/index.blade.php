@@ -56,7 +56,7 @@ SIT New Student
                         คณะเทคโนโลยีสารสนเทศ ประจำภาคการศึกษาที่
                     </strong>
                 </p>
-                <form method="POST" action="/register">
+                <form method="POST" action="/detail">
                     @csrf
                     @method('POST')
                     <table width="750" border="0" align="center" cellpadding="2" cellspacing="0">
