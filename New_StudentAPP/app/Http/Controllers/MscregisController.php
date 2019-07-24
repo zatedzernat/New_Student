@@ -109,17 +109,13 @@ class MscregisController extends Controller
 
             $student->save();
             $request->session()->pull('student');
-            return redirect()->route('suc');
+            return view('success');
         } else {
             $errors = new MessageBag();
             $errors->add('no_ses_up', 'กรุณาล๊อคอินอีกครั้ง (session expired[update])');
             return redirect()->route('home')->withErrors($errors);
         }
 
-    }
-
-    public function success() {
-        return view('success');
     }
 
     /**
