@@ -47,6 +47,8 @@ CREATE TABLE `mscregis` (
   `tel` varchar(30) default NULL COMMENT 'เบอร์โทรศัพท์ Ex. 024062129',
   `mobile` varchar(20) default NULL COMMENT 'เบอร์มือถือ Ex. 0869006621',
   `email` varchar(40) default NULL COMMENT 'อีเมลล์ Ex.email@hotmail.com',
+  `line` varchar(40) default NULL COMMENT 'ไลน์ Ex.test1234',
+  `facebook` varchar(40) default NULL COMMENT 'เฟสบุ๊ค Ex. Logan Pual',
   `em_address` longtext COMMENT 'ที่อยู่ติดต่อฉุกเฉิน Ex. 8 หมู่ 6 ซ.เอกชัย76 ต.บางบอน อ.บางบอน กทม 10150',
   `contact` varchar(60) default NULL COMMENT 'ชื่อผู้ติดต่อฉุกเฉิน Ex. นางสมใจ ใจดี',
   `em_tel` varchar(30) default NULL COMMENT 'เบอร์โทรกรณีฉุกเฉิน Ex. 0891090822',

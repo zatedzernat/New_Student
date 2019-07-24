@@ -103,7 +103,7 @@ class MscregisController extends Controller
 
             $student->setPersonalDetail($request->nameth, $request->lastname_th, $request->nameen, $request->lastname_en, $request->sex, $request->bloodtype, $request->dbirth
                 , $request->mbirth, $request->ybirth, $request->status, $request->origin, $request->national, $request->religion, $request->note, $request->address, $request->add1
-                , $request->add2, $request->city, $request->zipcode, $tel, $mobile, $request->email, $request->em_address, $request->contact, $em_tel);
+                , $request->add2, $request->city, $request->zipcode, $tel, $mobile, $request->email, $request->line, $request->facebook, $request->em_address, $request->contact, $em_tel);
             $student->setWorkDetail($request->name_bus, $request->workadd, $telwork, $request->position, $request->year_start, $request->notework);
             $student->setStudyDetail($request->graduate, $request->year_end, $request->gfrom, $request->branch, $request->type_edu, $request->gpa, $request->note_edu);
 

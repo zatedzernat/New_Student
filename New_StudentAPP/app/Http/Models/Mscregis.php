@@ -12,7 +12,7 @@ class Mscregis extends Model
     protected $fillable = ['cur', 'sid', 'testno', 'idno', 'fnameth', 'nameth', 'lastname_th', 'fnameen',
         'nameen', 'lastname_en', 'sex', 'bloodtype', 'dbirth', 'mbirth', 'ybirth', 'status',
         'national', 'origin', 'religion', 'note', 'address', 'add1', 'add2', 'city', 'zipcode',
-        'tel', 'mobile', 'email', 'em_address', 'contact', 'em_tel', 'name_bus', 'workadd',
+        'tel', 'mobile', 'email', 'line', 'facebook', 'em_address', 'contact', 'em_tel', 'name_bus', 'workadd',
         'telwork', 'position', 'year_start', 'workexp', 'notework', 'graduate', 'year_end',
         'gfrom', 'branch', 'type_edu', 'gpa', 'note_edu', 'time', 'register', 'questionnaire'];
     public $incrementing = false;
@@ -31,8 +31,7 @@ class Mscregis extends Model
     public function setPersonalDetail(
         $nameth, $lastname_th, $nameen, $lastname_en, $sex, $bloodtype, $dbirth
         , $mbirth, $ybirth, $status, $origin, $national, $religion, $note, $address, $add1
-        , $add2, $city, $zipcode, $tel, $mobile, $email, $em_address, $contact, $em_tel) {
-            //line1 parameter
+        , $add2, $city, $zipcode, $tel, $mobile, $email, $line, $facebook, $em_address, $contact, $em_tel) {
             $this->nameth = $nameth;
             $this->lastname_th = $lastname_th;
             $this->nameen = strtoupper($nameen);
@@ -41,7 +40,6 @@ class Mscregis extends Model
             $this->bloodtype = $bloodtype;
             $this->dbirth = $dbirth;
 
-            //line2 parameter
             $this->mbirth = $mbirth;
             $this->ybirth = $ybirth;
             $this->status = $status;
@@ -52,13 +50,14 @@ class Mscregis extends Model
             $this->address = $address;
             $this->add1 = $add1;
 
-            //line3 parameter
             $this->add2 = $add2;
             $this->city = $city;
             $this->zipcode = $zipcode;
             $this->tel = $tel;
             $this->mobile = $mobile;
             $this->email = $email;
+            $this->line = $line;
+            $this->facebook = $facebook;
             $this->em_address = $em_address;
             $this->contact = $contact;
             $this->em_tel = $em_tel;
