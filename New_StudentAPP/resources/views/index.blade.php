@@ -112,7 +112,7 @@ SIT New Student
 </div>
 <br>
 <div align="center">
-    <a href="https://www.sit.kmutt.ac.th/" class="btn btn-outline-success">
+    <a href="https://www.sit.kmutt.ac.th/" class="btn btn-outline-primary">
             www.sit.kmutt.ac.th
     </a>
     <br>
