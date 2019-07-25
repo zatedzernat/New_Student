@@ -112,10 +112,10 @@ SIT New Student
 </div>
 <br>
 <div align="center">
-    <a href="http://www.sit.kmutt.ac.th">
-        <span style="color: white; font-size: 18px">
+    <a href="https://www.sit.kmutt.ac.th/" class="btn btn-outline-success">
             www.sit.kmutt.ac.th
-        </span>
     </a>
+    <br>
+    <span style="color: white"> visitor: {{ Counter::showAndCount('home') }} </span>
 </div>
 @endsection
