@@ -65,9 +65,10 @@ class MscregisController extends Controller
         $canLogin = $this->opcl->checkOpcl(Carbon::now());
         if ($canLogin) {
             $idno = $request->input('idno1') . $request->input('idno2') . $request->input('idno3') . $request->input('idno4') . $request->input('idno5');
-
+            
             $student = $this->msc->findByidno($idno);
             if ($student) {
+                $request->session()->regenerate();
                 $request->session()->put('student', $student);
                 return redirect()->route('edit');
             } else {
