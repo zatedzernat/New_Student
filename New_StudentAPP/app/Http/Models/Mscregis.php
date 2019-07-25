@@ -87,4 +87,28 @@ class Mscregis extends Model
         
     }
 
+    public function getCurNameAttribute() {
+        $curname = $this->cur;
+        switch ($curname) {
+            case 'IT_N':
+                return 'เทคโนโลยีสารสนเทศ (ภาคค่ำ)';
+                break;
+            case 'IT_W':
+                return 'เทคโนโลยีสารสนเทศ (ภาคเสาร์-อาทิตย์)';
+                break;
+            case 'BIS':
+                return 'ระบบสารสนเทศทางธุรกิจ';
+                break;
+            case 'SW':
+                return 'วิศวกรรมซอฟต์แวร์';
+                break;
+            case 'Phd':
+                return 'ระดับปริญญาเอก';
+                break;
+            case 'CS':
+                return 'วิทยาการคอมพิวเตอร์';
+                break;
+        }
+    }
+
 }

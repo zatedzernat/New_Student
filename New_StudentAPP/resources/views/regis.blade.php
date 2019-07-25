@@ -47,8 +47,8 @@ SIT New Student
                         <div class="card-body">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">หลักสูตร :</label>
-                                <div class="col-sm-2">
-                                    <input type="text" class="form-control" value="{{ session('student')->cur }}"
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" value="{{ session('student')->cur_name }}"
                                         readonly>
                                 </div>
                             </div>
@@ -540,7 +540,7 @@ SIT New Student
                                 <label class="col-sm-3 col-form-label">Line ID :</label>
                                 <div class="col-sm-3">
                                     <input type="text" class="form-control" value="{{ session('student')->line }}"
-                                        name="line" required>
+                                        name="line">
                                 </div>
                                 &nbsp;
                             </div>
@@ -548,7 +548,7 @@ SIT New Student
                                 <label class="col-sm-3 col-form-label">Facebook :</label>
                                 <div class="col-sm-4">
                                     <input type="text" class="form-control" value="{{ session('student')->facebook }}"
-                                        name="facebook" required>
+                                        name="facebook">
                                 </div>
                                 &nbsp;
                             </div>
@@ -675,7 +675,7 @@ SIT New Student
                                 <label class="col-sm-3 col-form-label">ปีที่จบ :</label>
                                 <div class="col-sm-2">
                                     <input type="text" class="form-control" value="{{ session('student')->year_end }}"
-                                        name="year_end" size="4" maxlength="4">
+                                        name="year_end" size="4" maxlength="4" required>
                                 </div>
                                 <span style="color: red;">*</span>
                                 &nbsp;<span>เช่น 2549</span>
