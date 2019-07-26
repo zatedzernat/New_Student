@@ -89,7 +89,7 @@ class MscregisController extends Controller
     public function edit(Request $request)
     {
         if ($request->session()->get('student')) {
-            return view('regis');
+            return view('regis2');
         } else {
             $errors = new MessageBag();
             $errors->add('no_ses_ed', 'กรุณาล๊อคอินอีกครั้ง (session expired[edit])');
