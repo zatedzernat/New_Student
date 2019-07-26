@@ -540,17 +540,17 @@ SIT New Student
                                 <label class="col-sm-3 col-form-label">Line ID :</label>
                                 <div class="col-sm-3">
                                     <input type="text" class="form-control" value="{{ session('student')->line }}"
-                                        name="line">
+                                        name="line" required>
                                 </div>
-                                &nbsp;
+                                <span style="color: red;">*</span>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Facebook :</label>
                                 <div class="col-sm-4">
                                     <input type="text" class="form-control" value="{{ session('student')->facebook }}"
-                                        name="facebook">
+                                        name="facebook" required>
                                 </div>
-                                &nbsp;
+                                <span style="color: red;">*</span>
                             </div>
                             <div class="form-group row" style="background-color: lightblue;">
                                 <label class="col-sm-3 col-form-label">ทีอยู่ติดต่อฉุกเฉิน :</label>

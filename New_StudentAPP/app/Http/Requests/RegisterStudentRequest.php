@@ -38,6 +38,8 @@ class RegisterStudentRequest extends FormRequest
             'mobile2' => 'required|digits:4',
             'mobile3' => 'required|digits:4',
             'email' => 'required',
+            'line' => 'required',
+            'facebook' => 'required',
             'em_address' => 'required',
             'em_tel1' => 'required|digits:2',
             'em_tel2' => 'required|digits:4',
