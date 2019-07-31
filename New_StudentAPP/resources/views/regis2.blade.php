@@ -8,6 +8,10 @@
                         next.focus();
                     }
                 }
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }        
     </script>
     {{-- template --}}
 
@@ -41,9 +45,13 @@
 <body style="background-color: grey;">
 
     <!--  Made With Material Kit  -->
-    <a href="http://demos.creative-tim.com/material-kit/index.html?ref=material-bootstrap-wizard" class="made-with-mk">
+    {{-- <a href="http://demos.creative-tim.com/material-kit/index.html?ref=material-bootstrap-wizard" class="made-with-mk">
         <div class="brand">MK</div>
         <div class="made-with">Made with <strong>Material Kit</strong></div>
+    </a> --}}
+    <a href="#" onclick="topFunction()" class="made-with-mk">
+        <div class="brand">UP</div>
+        <div class="made-with">copyright <strong>Material Kit</strong></div>
     </a>
 
     <div class="container">
@@ -326,7 +334,7 @@
                                                 <label class="control-label">ปีเกิด
                                                     <small>(required)</small></label>
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control"
+                                                    <input type="number" class="form-control"
                                                         value="{{ session('student')->ybirth }}" name="ybirth" size="4"
                                                         maxlength="4" required>
                                                     <span class="input-group-addon">เช่น 2540</span>
@@ -637,48 +645,56 @@
                                         <div class="col-sm-4 col-sm-offset-1">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">รหัสไปรษณีย์</label>
-                                                <input type="text" class="form-control"
+                                                <input type="number" class="form-control"
                                                     value="{{ session('student')->zipcode }}" name="zipcode">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-4 col-sm-offset-1">
+                                        <div class="col-sm-5 col-sm-offset-1">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">โทรศัพท์บ้าน</label>
-                                                <input type="tel" class="form-control"
-                                                    value="{{ session('student')->tel }}" name="tel" size="9"
-                                                    maxlength="9">
+                                                <div class="input-group">
+                                                    <input type="tel" class="form-control"
+                                                        value="{{ session('student')->tel }}" name="tel" size="10"
+                                                        maxlength="10" title="Format ไม่ถูกต้อง"
+                                                        pattern="[0]{1}[0-9]{1}-[0-9]{7}">
+                                                    <span class="input-group-addon">เช่น 02-XXXXXXX</span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4 col-sm-offset-1">
+                                        <div class="col-sm-5">
                                             <div class="form-group label-floating">
-                                                <label
-                                                    class="control-label">โทรศัพท์มือถือ<small>(required)</small></label>
-                                                <input type="tel" class="form-control"
-                                                    value="{{ session('student')->mobile }}" name="mobile" required
-                                                    size="10" maxlength="10">
+                                                <label class="control-label">โทรศัพท์มือถือ
+                                                    <small>(required)</small></label>
+                                                <div class="input-group">
+                                                    <input type="tel" class="form-control"
+                                                        value="{{ session('student')->mobile }}" name="mobile" required
+                                                        size="11" maxlength="11" title="Format ไม่ถูกต้อง"
+                                                        pattern="[0]{1}[0-9]{2}-[0-9]{7}">
+                                                    <span class="input-group-addon">เช่น 08X-XXXXXXX</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-3 col-sm-offset-1">
                                             <div class="form-group label-floating">
-                                                <label class="control-label">E-mail<small>(required)</small></label>
+                                                <label class="control-label">E-mail <small>(required)</small></label>
                                                 <input type="email" class="form-control"
                                                     value="{{ session('student')->email }}" name="email" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-2">
                                             <div class="form-group label-floating">
-                                                <label class="control-label">Line ID<small>(required)</small></label>
+                                                <label class="control-label">Line ID <small>(required)</small></label>
                                                 <input type="text" class="form-control"
                                                     value="{{ session('student')->line }}" name="line" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group label-floating">
-                                                <label class="control-label">Facebook<small>(required)</small></label>
+                                                <label class="control-label">Facebook <small>(required)</small></label>
                                                 <input type="text" class="form-control"
                                                     value="{{ session('student')->facebook }}" name="facebook" facebook>
                                             </div>
@@ -687,8 +703,8 @@
                                     <div class="row">
                                         <div class="col-sm-9 col-sm-offset-1">
                                             <div class="form-group label-floating">
-                                                <label
-                                                    class="control-label">ที่อยู่ติดต่อฉุกเฉิน<small>(required)</small></label>
+                                                <label class="control-label">ที่อยู่ติดต่อฉุกเฉิน
+                                                    <small>(required)</small></label>
                                                 <textarea class="form-control" placeholder="" rows="2" name="em_address"
                                                     required>{{ session('student')->em_address }}</textarea>
                                             </div>
@@ -697,19 +713,22 @@
                                     <div class="row">
                                         <div class="col-sm-4 col-sm-offset-1">
                                             <div class="form-group label-floating">
-                                                <label
-                                                    class="control-label">ผู้ติดต่อกรณีฉุกเฉิน<small>(required)</small></label>
+                                                <label class="control-label">ผู้ติดต่อกรณีฉุกเฉิน
+                                                    <small>(required)</small></label>
                                                 <input type="text" class="form-control"
                                                     value="{{ session('student')->contact }}" name="contact" required>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4 col-sm-offset-1">
+                                        <div class="col-sm-5 col-sm-offset-1">
                                             <div class="form-group label-floating">
-                                                <label
-                                                    class="control-label">เบอร์โทรกรณีฉุกเฉิน<small>(required)</small></label>
-                                                <input type="tel" class="form-control"
-                                                    value="{{ session('student')->em_tel }}" name="em_tel" required
-                                                    size="10" maxlength="10">
+                                                <label class="control-label">เบอร์โทรกรณีฉุกเฉิน
+                                                    <small>(required)</small></label>
+                                                <div class="input-group">
+                                                    <input type="tel" class="form-control"
+                                                        value="{{ session('student')->em_tel }}" name="em_tel" required
+                                                        size="11" maxlength="11">
+                                                    <span class="input-group-addon">เช่น 08X-XXXXXXX</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -755,7 +774,7 @@
                                             <div class="form-group label-floating">
                                                 <label class="control-label">ปีที่เริ่มงาน</label>
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control"
+                                                    <input type="number" class="form-control"
                                                         value="{{ session('student')->year_start }}" name="year_start"
                                                         size="4" maxlength="4">
                                                     <span class="input-group-addon">เช่น 2540</span>
@@ -792,7 +811,7 @@
                                                 <label class="control-label">ปีที่จบ
                                                     <small>(required)</small></label>
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control"
+                                                    <input type="number" class="form-control"
                                                         value="{{ session('student')->year_end }}" name="year_end"
                                                         size="4" maxlength="4" required>
                                                     <span class="input-group-addon">เช่น 2540</span>
@@ -843,7 +862,8 @@
                                         </div>
                                         <div class="col-sm-4 col-sm-offset-1">
                                             <div class="form-group label-floating">
-                                                <label class="control-label">เกรดเฉลี่ยสะสม<small>(required)</small></label>
+                                                <label class="control-label">เกรดเฉลี่ยสะสม
+                                                    <small>(required)</small></label>
                                                 <input type="text" class="form-control"
                                                     value="{{ session('student')->gpa }}" name="gpa" required
                                                     maxlength="4">

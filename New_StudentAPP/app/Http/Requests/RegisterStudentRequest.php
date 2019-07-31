@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RegisterStudentRequest extends FormRequest
@@ -34,16 +33,13 @@ class RegisterStudentRequest extends FormRequest
             'origin' => 'required',
             'national' => 'required',
             'religion' => 'required',
-            'mobile1' => 'required|digits:2',
-            'mobile2' => 'required|digits:4',
-            'mobile3' => 'required|digits:4',
+            'mobile' => 'required',
             'email' => 'required',
             'line' => 'required',
             'facebook' => 'required',
+            'contact' => 'required',
             'em_address' => 'required',
-            'em_tel1' => 'required|digits:2',
-            'em_tel2' => 'required|digits:4',
-            'em_tel3' => 'required|digits:4',
+            'em_tel' => 'required',
 
             //study detail
             'graduate' => 'required',
@@ -58,13 +54,35 @@ class RegisterStudentRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'กรอกช่องที่มีเครื่องหมายดอกจัน :attribute',
-            'mo1.digits' => 'เบอร์มือถือช่องแรกกรอกไม่ครบ',
-            'mo2.digits' => 'เบอร์มือถือช่องสองกรอกไม่ครบ',
-            'mo3.digits' => 'เบอร์มือถือช่องสามกรอกไม่ครบ',
-            'em_tel1.digits' => 'เบอร์มือถือฉุกเฉินช่องแรกกรอกไม่ครบ',
-            'em_tel2.digits' => 'เบอร์มือถือฉุกเฉินช่องสองกรอกไม่ครบ',
-            'em_tel3.digits' => 'เบอร์มือถือฉุกเฉินช่องสามกรอกไม่ครบ',
+            'required' => 'กรอกช่องที่มีเครื่องหมายดอกจันหรือ required (:attribute)',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'nameth' => 'ชื่อ',
+            'lastname_th' => 'นามสกุล',
+            'nameen' => 'Name',
+            'lastname_en' => 'Surname',
+            'ybirth' => 'ปีเกิด',
+            'origin' => 'สัญชาติ',
+            'national' => 'เชื้อชาติ',
+            'religion' => 'ศาสนา',
+            'mobile' => 'โทรศัพท์มือถือ',
+            'email' => 'E-mail',
+            'line' => 'Line ID',
+            'facebook' => 'Facebook',
+            'contact' => 'ผู้ติดต่อกรณีฉุกเฉิน',
+            'em_address' => 'ที่อยู่ติดต่อฉุกเฉิน',
+            'em_tel' => 'เบอร์โทรกรณีฉุกเฉิน',
+
+            'graduate' => 'วุฒิการศึกษา',
+            'year_end' => 'ปีที่จบ',
+            'gfrom' => 'สถาบันที่สำเร็จการศึกษา',
+            'branch' => 'สาขาวิชาเอก',
+            'gpa' => 'เกรดเฉลี่ยสะสม',
+
         ];
     }
 

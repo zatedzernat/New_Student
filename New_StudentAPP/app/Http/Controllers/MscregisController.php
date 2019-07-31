@@ -111,10 +111,10 @@ class MscregisController extends Controller
             $idno = $request->session()->get('student')->idno;
             $student = $this->msc->findByidno($idno);
 
-            $tel = $request->tel1 . $request->tel2 . $request->tel3;
-            $mobile = $request->mobile1 . $request->mobile2 . $request->mobile3;
-            $em_tel = $request->em_tel1 . $request->em_tel2 . $request->em_tel3;
-            $telwork = $request->telwork1 . $request->telwork2 . $request->telwork3;
+            $tel = $request->tel;
+            $mobile = $request->mobile;
+            $em_tel = $request->em_tel;
+            $telwork = $request->telwork;
 
             $student->setPersonalDetail($request->nameth, $request->lastname_th, $request->nameen, $request->lastname_en, $request->sex, $request->bloodtype, $request->dbirth
                 , $request->mbirth, $request->ybirth, $request->status, $request->origin, $request->national, $request->religion, $request->note, $request->address, $request->add1
