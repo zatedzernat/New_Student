@@ -143,7 +143,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
       color: rgba(255, 255, 255, 0.9); }
 
 .wizard-container {
-  padding-top: 20px;
+  padding-top: 40px;
   z-index: 3; }
   .wizard-container .wizard-navigation {
     position: relative; }
@@ -408,7 +408,7 @@ output {
 .form-control {
   height: 36px;
   padding: 7px 0;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.42857; }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
@@ -719,10 +719,10 @@ label.control-label {
     color: #AAAAAA;
     font-weight: 400; }
   .form-group label.control-label {
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.07143;
-    color: #AAAAAA;
-    font-weight: 400;
+    color: steelblue;
+    font-weight: bold;
     margin: 16px 0 0 0; }
   .form-group .help-block {
     margin-top: 0;
@@ -734,7 +734,8 @@ label.control-label {
   .form-group.label-static label.control-label, .form-group.label-floating.is-focused label.control-label, .form-group.label-floating:not(.is-empty) label.control-label {
     top: -28px;
     left: 0;
-    font-size: 11px;
+    font-size: 14px;
+    font-weight: bold;
     line-height: 1.07143; }
   .form-group.label-floating input.form-control:-webkit-autofill ~ label.control-label label.control-label {
     top: -28px;
