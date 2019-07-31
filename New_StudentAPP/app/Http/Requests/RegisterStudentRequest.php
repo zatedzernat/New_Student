@@ -58,7 +58,7 @@ class RegisterStudentRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'กรอกช่องที่มีเครื่องหมายดอกจัน',
+            'required' => 'กรอกช่องที่มีเครื่องหมายดอกจัน :attribute',
             'mo1.digits' => 'เบอร์มือถือช่องแรกกรอกไม่ครบ',
             'mo2.digits' => 'เบอร์มือถือช่องสองกรอกไม่ครบ',
             'mo3.digits' => 'เบอร์มือถือช่องสามกรอกไม่ครบ',

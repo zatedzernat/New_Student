@@ -680,7 +680,7 @@
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Facebook<small>(required)</small></label>
                                                 <input type="text" class="form-control"
-                                                    value="{{ session('student')->facebook }}" name="email" facebook>
+                                                    value="{{ session('student')->facebook }}" name="facebook" facebook>
                                             </div>
                                         </div>
                                     </div>
@@ -747,8 +747,8 @@
                                         <div class="col-sm-4 col-sm-offset-1">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">ตำแหน่งงาน</label>
-                                                <input type="tel" class="form-control"
-                                                    value="{{ session('student')->telwork }}" name="telwork" size="9"
+                                                <input type="text" class="form-control"
+                                                    value="{{ session('student')->position }}" name="position" size="9"
                                                     maxlength="9">
                                             </div>
                                         </div>
