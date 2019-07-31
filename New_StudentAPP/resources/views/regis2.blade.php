@@ -748,8 +748,7 @@
                                             <div class="form-group label-floating">
                                                 <label class="control-label">ตำแหน่งงาน</label>
                                                 <input type="text" class="form-control"
-                                                    value="{{ session('student')->position }}" name="position" size="9"
-                                                    maxlength="9">
+                                                    value="{{ session('student')->position }}" name="position">
                                             </div>
                                         </div>
                                         <div class="col-sm-5 col-sm-offset-1">
