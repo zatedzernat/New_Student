@@ -44,24 +44,9 @@ SIT New Student
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
-    /* unvisited link */
-    a.sit:link {
-        color: white;
-    }
-
-    /* visited link */
-    a.sit:visited {
-        color: white;
-    }
-
-    /* mouse over link */
-    a.sit:hover {
-        color: goldenrod;
-    }
-
-    /* selected link */
-    a.sit:active {
-        color: goldenrod;
+    .ll .btn-primary {
+        background-color: navy;
+        border-color: navy;
     }
 </style>
 @endsection
@@ -146,8 +131,8 @@ SIT New Student
     </div>
 </div>
 <br>
-<div align="center">
-    <a href="https://www.sit.kmutt.ac.th/" class="sit">
+<div align="center" class="ll">
+    <a href="https://www.sit.kmutt.ac.th/" class="btn btn-primary">
         www.sit.kmutt.ac.th
     </a>
     <span style="color: white">({{ Counter::showAndCount('home') }}) </span>
