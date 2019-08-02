@@ -27,17 +27,18 @@ Profile Update Success
                         <br>
                         โปรแกรมกรอกข้อมูลสำหรับนักศึกษาใหม่
                         <br>
-                        คณะเทคโนโลยีสารสนเทศ ประจำภาคการศึกษาที่
+                        คณะเทคโนโลยีสารสนเทศ ประจำภาคการศึกษาที่ {{ session('opcl')->semester }}
                     </strong>
                 </p>
 
                 <div class="alert alert-success alert-dismissible">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <h5>จัดเก็บข้อมูลเรียบร้อยแล้วค่ะ ขอบคุณค่ะ</h5>
+                    <h6>จัดเก็บข้อมูลเรียบร้อยแล้วค่ะ ขอบคุณค่ะ</h6>
                 </div>
-
+                
                 <div style="text-align: center;">
                     <a href="/" class="btn btn-primary">กลับหน้าแรก</a>
+                    &nbsp;
+                    &nbsp;
                     <a href="https://www.sit.kmutt.ac.th/" class="btn btn-outline-primary">หน้าหลักเว็บไซต์ คณะฯ</a>
                 </div>
                 <br>

@@ -43,6 +43,27 @@ SIT New Student
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+    /* unvisited link */
+    a.sit:link {
+        color: white;
+    }
+
+    /* visited link */
+    a.sit:visited {
+        color: white;
+    }
+
+    /* mouse over link */
+    a.sit:hover {
+        color: goldenrod;
+    }
+
+    /* selected link */
+    a.sit:active {
+        color: goldenrod;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -86,20 +107,18 @@ SIT New Student
                                 <td>
                                     <span>
                                         <input name="idno1" type="text" id="idno1" size="1" maxlength="1"
-                                            onKeyUp="TabNext(this,'up',1,this.form.idno2)" autofocus required
-                                            placeholder="0">
+                                            onKeyUp="TabNext(this,'up',1,this.form.idno2)" autofocus required>
                                         -
                                         <input name="idno2" type="text" id="idno2" size="4" maxlength="4"
-                                            onKeyUp="TabNext(this,'up',4,this.form.idno3)" required placeholder="0000">
+                                            onKeyUp="TabNext(this,'up',4,this.form.idno3)" required>
                                         -
                                         <input name="idno3" type="text" id="idno3" size="5" maxlength="5"
-                                            onKeyUp="TabNext(this,'up',5,this.form.idno4)" required placeholder="00000">
+                                            onKeyUp="TabNext(this,'up',5,this.form.idno4)" required>
                                         -
                                         <input name="idno4" type="text" id="idno4" size="2" maxlength="2"
-                                            onKeyUp="TabNext(this,'up',2,this.form.idno5)" required placeholder="00">
+                                            onKeyUp="TabNext(this,'up',2,this.form.idno5)" required>
                                         -
-                                        <input name="idno5" type="text" id="idno5" size="1" maxlength="1"
-                                            placeholder="0">
+                                        <input name="idno5" type="text" id="idno5" size="1" maxlength="1">
                                     </span>
                             </tr>
                             <tr>
@@ -128,10 +147,9 @@ SIT New Student
 </div>
 <br>
 <div align="center">
-    <a href="https://www.sit.kmutt.ac.th/" class="btn btn-outline-primary">
+    <a href="https://www.sit.kmutt.ac.th/" class="sit">
         www.sit.kmutt.ac.th
     </a>
-    <br>
-    <span style="color: white"> visitor: {{ Counter::showAndCount('home') }} </span>
+    <span style="color: white">({{ Counter::showAndCount('home') }}) </span>
 </div>
 @endsection

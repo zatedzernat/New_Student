@@ -96,7 +96,7 @@
                 @endif
                 <!--      Wizard container        -->
                 <div class="wizard-container">
-                    <div class="card wizard-card" data-color="orange" id="wizard">
+                    <div class="card wizard-card" data-color="green" id="wizard">
                         <form method="POST" action="/update">
                             @csrf
                             <!--        You can switch " data-color="rose" "  with one of the next bright colors: "blue", "green", "orange", "purple"        -->
