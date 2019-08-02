@@ -33,13 +33,13 @@ class RegisterStudentRequest extends FormRequest
             'origin' => 'required',
             'national' => 'required',
             'religion' => 'required',
-            'mobile' => 'required',
+            'mobile' => 'required|size:11',
             'email' => 'required',
             'line' => 'required',
             'facebook' => 'required',
             'contact' => 'required',
             'em_address' => 'required',
-            'em_tel' => 'required',
+            'em_tel' => 'required|size:11',
 
             //study detail
             'graduate' => 'required',
@@ -55,6 +55,7 @@ class RegisterStudentRequest extends FormRequest
     {
         return [
             'required' => 'กรอกช่องที่มีเครื่องหมายดอกจันหรือ required (:attribute)',
+            'size' => 'กรอกเบอร์โทรศัพท์ให้ถูกต้อง (:attribute)'
         ];
     }
 

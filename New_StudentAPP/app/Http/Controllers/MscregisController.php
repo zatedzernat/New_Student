@@ -111,10 +111,20 @@ class MscregisController extends Controller
             $idno = $request->session()->get('student')->idno;
             $student = $this->msc->findByidno($idno);
 
-            $tel = $request->tel;
-            $mobile = $request->mobile;
-            $em_tel = $request->em_tel;
-            $telwork = $request->telwork;
+            try {
+                $tels = \explode("-",$request->tel);
+                $tel = $tels[0].$tels[1];
+                $mobiles = \explode("-",$request->mobile);
+                $mobile = $mobiles[0].$mobiles[1];
+                $em_tels = \explode("-",$request->em_tel);
+                $em_tel = $em_tels[0].$em_tels[1];
+                $telworks = \explode("-",$request->telwork);
+                $telwork = $telworks[0].$telworks[1];
+            } catch (\Exception $ex) {
+                $errors = new MessageBag();
+                $errors->add('tel_format','กรอกเบอร์โทรศัพท์ให้ถูกต้อง');
+                return back()->withInput()->withErrors($errors);
+            }
 
             $student->setPersonalDetail($request->nameth, $request->lastname_th, $request->nameen, $request->lastname_en, $request->sex, $request->bloodtype, $request->dbirth
                 , $request->mbirth, $request->ybirth, $request->status, $request->origin, $request->national, $request->religion, $request->note, $request->address, $request->add1

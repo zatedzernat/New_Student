@@ -32,39 +32,40 @@ class Mscregis extends Model
         $nameth, $lastname_th, $nameen, $lastname_en, $sex, $bloodtype, $dbirth
         , $mbirth, $ybirth, $status, $origin, $national, $religion, $note, $address, $add1
         , $add2, $city, $zipcode, $tel, $mobile, $email, $line, $facebook, $em_address, $contact, $em_tel) {
-            $this->nameth = $nameth;
-            $this->lastname_th = $lastname_th;
-            $this->nameen = strtoupper($nameen);
-            $this->lastname_en = strtoupper($lastname_en);
-            $this->sex = $sex;
-            $this->bloodtype = $bloodtype;
-            $this->dbirth = $dbirth;
+        $this->nameth = $nameth;
+        $this->lastname_th = $lastname_th;
+        $this->nameen = strtoupper($nameen);
+        $this->lastname_en = strtoupper($lastname_en);
+        $this->sex = $sex;
+        $this->bloodtype = $bloodtype;
+        $this->dbirth = $dbirth;
 
-            $this->mbirth = $mbirth;
-            $this->ybirth = $ybirth;
-            $this->status = $status;
-            $this->origin = $origin;
-            $this->national = $national;
-            $this->religion = $religion;
-            $this->note = $note;
-            $this->address = $address;
-            $this->add1 = $add1;
+        $this->mbirth = $mbirth;
+        $this->ybirth = $ybirth;
+        $this->status = $status;
+        $this->origin = $origin;
+        $this->national = $national;
+        $this->religion = $religion;
+        $this->note = $note;
+        $this->address = $address;
+        $this->add1 = $add1;
 
-            $this->add2 = $add2;
-            $this->city = $city;
-            $this->zipcode = $zipcode;
-            $this->tel = $tel;
-            $this->mobile = $mobile;
-            $this->email = $email;
-            $this->line = $line;
-            $this->facebook = $facebook;
-            $this->em_address = $em_address;
-            $this->contact = $contact;
-            $this->em_tel = $em_tel;
+        $this->add2 = $add2;
+        $this->city = $city;
+        $this->zipcode = $zipcode;
+        $this->tel = $tel;
+        $this->mobile = $mobile;
+        $this->email = $email;
+        $this->line = $line;
+        $this->facebook = $facebook;
+        $this->em_address = $em_address;
+        $this->contact = $contact;
+        $this->em_tel = $em_tel;
 
     }
 
-    public function setWorkDetail($name_bus, $workadd, $telwork, $position, $year_start, $notework) {
+    public function setWorkDetail($name_bus, $workadd, $telwork, $position, $year_start, $notework)
+    {
 
         $this->name_bus = $name_bus;
         $this->workadd = $workadd;
@@ -72,10 +73,11 @@ class Mscregis extends Model
         $this->position = $position;
         $this->year_start = $year_start;
         $this->notework = $notework;
-        
+
     }
-    
-    public function setStudyDetail($graduate, $year_end, $gfrom, $branch, $type_edu, $gpa, $note_edu) {
+
+    public function setStudyDetail($graduate, $year_end, $gfrom, $branch, $type_edu, $gpa, $note_edu)
+    {
 
         $this->graduate = $graduate;
         $this->year_end = $year_end;
@@ -84,10 +86,11 @@ class Mscregis extends Model
         $this->type_edu = $type_edu;
         $this->gpa = $gpa;
         $this->note_edu = $note_edu;
-        
+
     }
 
-    public function getCurNameAttribute() {
+    public function getCurNameAttribute()
+    {
         $curname = $this->cur;
         switch ($curname) {
             case 'IT_N':
@@ -109,6 +112,26 @@ class Mscregis extends Model
                 return 'วิทยาการคอมพิวเตอร์';
                 break;
         }
+    }
+
+    public function getTelNumberAttribute()
+    {
+        return substr($this->tel, 0, 2) . '-' . substr($this->tel, 2);
+    }
+
+    public function getMobileNumberAttribute()
+    {
+        return substr($this->mobile, 0, 3) . '-' . substr($this->mobile, 3);
+    }
+
+    public function getEmtelNumberAttribute()
+    {
+        return substr($this->em_tel, 0, 3) . '-' . substr($this->em_tel, 3);
+    }
+
+    public function getTelworkNumberAttribute()
+    {
+        return substr($this->telwork, 0, 2) . '-' . substr($this->telwork, 2);
     }
 
 }

@@ -11,7 +11,33 @@
         function topFunction() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
-        }        
+        }
+        function formatTel(obj) {
+            var len = obj.value.length;
+            if(len==2) {
+                obj.value = obj.value + "-";
+            } 
+        }
+        function formatMobile(obj) {
+            var len = obj.value.length;
+            if(len==3) {
+                obj.value = obj.value + "-";
+            } 
+        }
+        // function checkPhoneNumber(){
+        //     var tel = Document.getElementById("tel1");
+        //     var mobile = Document.getElementById("mobile1");
+        //     var emtel = Document.getElementById("emtel1");
+        //     var phoneno = /^\(?([0-9]{2})\)?[-]?([0-9]{7})$/;
+        //     var mobilephoneno = /^\(?([0-9]{3})\)?[-]?([0-9]{7})$/;
+        //     if(tel.value.match(phoneno)){
+        //         return true;
+        //     }
+        //     else{
+        //         alert("Format เบอร์โทรไม่ถูกต้อง");
+        //         return false;
+        //     }
+        // }        
     </script>
     {{-- template --}}
 
@@ -652,29 +678,27 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="col-sm-4 col-sm-offset-1">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">โทรศัพท์บ้าน</label>
-                                                <div class="input-group">
-                                                    <input type="tel" class="form-control"
-                                                        value="{{ session('student')->tel }}" name="tel" size="10"
-                                                        maxlength="10" title="Format ไม่ถูกต้อง"
-                                                        pattern="[0]{1}[0-9]{1}-[0-9]{7}">
-                                                    <span class="input-group-addon">เช่น 02-XXXXXXX</span>
-                                                </div>
+                                                {{-- <div class="input-group"> --}}
+                                                <input type="tel" class="form-control" name="tel" size="10"
+                                                    maxlength="10" id="tel1" onkeypress="formatTel(this)"
+                                                    value="{{ session('student')->tel_number }}">
+                                                {{-- <span class="input-group-addon">เช่น 02-XXXXXXX</span>
+                                                </div> --}}
                                             </div>
                                         </div>
-                                        <div class="col-sm-5">
+                                        <div class="col-sm-4 col-sm-offset-1">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">โทรศัพท์มือถือ
                                                     <small>(required)</small></label>
-                                                <div class="input-group">
-                                                    <input type="tel" class="form-control"
-                                                        value="{{ session('student')->mobile }}" name="mobile" required
-                                                        size="11" maxlength="11" title="Format ไม่ถูกต้อง"
-                                                        pattern="[0]{1}[0-9]{2}-[0-9]{7}">
-                                                    <span class="input-group-addon">เช่น 08X-XXXXXXX</span>
-                                                </div>
+                                                {{-- <div class="input-group"> --}}
+                                                <input type="tel" class="form-control" name="mobile" required size="11"
+                                                    maxlength="11" id="mobile1" onkeypress="formatMobile(this)"
+                                                    value="{{ session('student')->mobile_number }}">
+                                                {{-- <span class="input-group-addon">เช่น 08X-XXXXXXX</span>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -720,16 +744,16 @@
                                                     value="{{ session('student')->contact }}" name="contact" required>
                                             </div>
                                         </div>
-                                        <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="col-sm-4 col-sm-offset-1">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">เบอร์โทรกรณีฉุกเฉิน
                                                     <small>(required)</small></label>
-                                                <div class="input-group">
-                                                    <input type="tel" class="form-control"
-                                                        value="{{ session('student')->em_tel }}" name="em_tel" required
-                                                        size="11" maxlength="11">
-                                                    <span class="input-group-addon">เช่น 08X-XXXXXXX</span>
-                                                </div>
+                                                {{-- <div class="input-group"> --}}
+                                                <input type="tel" class="form-control" name="em_tel" required size="11"
+                                                    maxlength="11" id="emtel1" onkeypress="formatMobile(this)"
+                                                    value="{{ session('student')->emtel_number }}">
+                                                {{-- <span class="input-group-addon">เช่น 08X-XXXXXXX</span> --}}
+                                                {{-- </div> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -757,9 +781,9 @@
                                         <div class="col-sm-4 col-sm-offset-1">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">โทรศัพท์</label>
-                                                <input type="tel" class="form-control"
-                                                    value="{{ session('student')->telwork }}" name="telwork" size="9"
-                                                    maxlength="9">
+                                                <input type="tel" class="form-control" name="telwork"
+                                                    onkeypress="formatTel(this)"
+                                                    value="{{ session('student')->telwork_number }}">
                                             </div>
                                         </div>
                                     </div>
@@ -884,14 +908,14 @@
                             </div>
                             <div class="wizard-footer">
                                 <div class="pull-right">
-                                    <input type='button' class='btn btn-next btn-fill btn-success btn-wd' name='next'
+                                    <input type='button' class='btn btn-next btn-fill btn-success btn-wd'
                                         value='ต่อไป' />
                                     <input type='submit' class='btn btn-finish btn-fill btn-success btn-wd'
-                                        name='finish' value='ยืนยัน' />
+                                        value='ยืนยัน' />
                                 </div>
                                 <div class="pull-left">
                                     <input type='button' class='btn btn-previous btn-fill btn-default btn-wd'
-                                        name='previous' value='ย้อนกลับ' />
+                                        value='ย้อนกลับ' />
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
