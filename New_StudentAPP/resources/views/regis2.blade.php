@@ -57,6 +57,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-9 col-sm-offset-2">
+                <br>
                 @if ($errors->any())
                 <div class="alert alert-danger alert-dismissible">
                     <ul>
@@ -696,7 +697,7 @@
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Facebook <small>(required)</small></label>
                                                 <input type="text" class="form-control"
-                                                    value="{{ session('student')->facebook }}" name="facebook" facebook>
+                                                    value="{{ session('student')->facebook }}" name="facebook" required>
                                             </div>
                                         </div>
                                     </div>
