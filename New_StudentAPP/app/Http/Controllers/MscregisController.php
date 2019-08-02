@@ -92,7 +92,7 @@ class MscregisController extends Controller
             return view('regis2');
         } else {
             $errors = new MessageBag();
-            $errors->add('no_ses_ed', 'กรุณาล๊อคอินอีกครั้ง (session expired[edit])');
+            $errors->add('no_ses_ed', 'กรุณาล๊อคอินอีกครั้ง');
             return redirect()->route('home')->withErrors($errors);
         }
     }
@@ -127,7 +127,7 @@ class MscregisController extends Controller
             return view('success');
         } else {
             $errors = new MessageBag();
-            $errors->add('no_ses_up', 'กรุณาล๊อคอินอีกครั้ง (session expired[update])');
+            $errors->add('no_ses_up', 'กรุณาล๊อคอินอีกครั้ง');
             return redirect()->route('home')->withErrors($errors);
         }
 
